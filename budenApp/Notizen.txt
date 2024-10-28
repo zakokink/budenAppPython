@@ -1,0 +1,218 @@
+ getLatestTrainingWithUebung(int uebungsnummer) {
+
+theQueryString = "select * from training where date in (select max(date) from training where uebung=" + uebungsnummer + " having uebung=" + uebungsnummer + ")";
+
+
+
+@Repository
+public class TrainingDaoImpl implements TrainingDao {
+
+	@Autowired
+	private EntityManager entityManager;
+
+	@Autowired
+	private UebungenService uebungenService;
+
+	public TrainingDaoImpl(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+
+	@Override
+	public List<Training> getAllTrainings() {
+		Session currentSession = entityManager.unwrap(Session.class);
+
+		Query theQuery = currentSession.createNativeQuery("select * from training", Training.class);
+
+		List<Training> trainings = theQuery.getResultList();
+
+		return trainings;
+
+	}
+
+	@Override
+	public List<Training> getAllTrainingsWithUebungsNamen() {
+
+		List<Training> trainings = getAllTrainings();
+
+		// Set the uebungsname of the uebung as a "comment"
+		for(Training training :trainings) {
+			training.setComment(uebungenService.getUebungsNamen(training.getUebung()));
+		}
+
+		return trainings;
+	}
+
+	@Override
+	public List<Training> getAllTrainingsByDate(Date theDate) {
+		Session currentSession = entityManager.unwrap(Session.class);
+
+		String queryString = "select * from training where date ='" + theDate + "'";
+
+		Query theQuery = currentSession.createNativeQuery(queryString, Training.class);
+
+		List<Training> trainings = theQuery.getResultList();
+
+		// Set the uebungsname of the uebung as a "comment"
+		for(Training training :trainings) {
+			training.setComment(uebungenService.getUebungsNamen(training.getUebung()));
+		}
+
+		return trainings;
+	}
+
+	@Override
+	public List<Training> getTrainingsOfCurrentDay() {
+
+		Session currentSession = entityManager.unwrap(Session.class);
+
+		String queryString = "select * from training WHERE DATE(date) = CURDATE()";
+
+		Query theQuery = currentSession.createNativeQuery(queryString, Training.class);
+
+		List<Training> theTrainings = theQuery.getResultList();
+
+		// Set the uebungsname of the uebung as a "comment"
+		for(Training training :theTrainings) {
+			training.setComment(uebungenService.getUebungsNamen(training.getUebung()));
+		}
+
+		return theTrainings;
+
+	}
+
+
+	@Override
+	public Training getLatestTraining() {
+
+		Session currentSession = entityManager.unwrap(Session.class);
+
+		Query theQuery = currentSession.createNativeQuery(
+				"select * from training where date in (select max(date) from training)", Training.class);
+
+		List<Training> trainings = theQuery.getResultList();
+
+		if (trainings.isEmpty()) {
+			return null;
+		}
+		Training theTraining = trainings.get(0);
+
+		return theTraining;
+	}
+
+	@Override
+	public List<Training> getLatestTrainings() {
+		Session currentSession = entityManager.unwrap(Session.class);
+
+		Query theQuery = currentSession.createNativeQuery(
+				"select * from training where date in (select max(date) from training)", Training.class);
+
+		List<Training> trainings = theQuery.getResultList();
+
+		// Set the uebungsname of the uebung as a "comment"
+		for(Training training :trainings) {
+			training.setComment(uebungenService.getUebungsNamen(training.getUebung()));
+		}
+
+		return trainings;
+	}
+
+	@Override
+	public Training getLatestTrainingWithUebung(int uebungsnummer) {
+		Session currentSession = entityManager.unwrap(Session.class);
+
+		String theQueryString = "select * from training where date in (select max(date) from training where uebung="
+				+ uebungsnummer + " having uebung=" + uebungsnummer + ")";
+		Query theQuery = currentSession.createNativeQuery(theQueryString, Training.class);
+
+		List<Training> trainings = theQuery.getResultList();
+
+		if (trainings.isEmpty()) {
+			return null;
+		}
+		Training theTraining = trainings.get(0);
+
+		return theTraining;
+	}
+
+	@Override
+	public Training getLatestTrainingWithUebung(String uebungsName) {
+
+		int uebungsNummer = uebungenService.getUebungsNummer(uebungsName);
+
+		return getLatestTrainingWithUebung(uebungsNummer);
+
+	}
+
+	@Override
+	public Training setTraining(Training training) {
+
+		Training theTraining = training;
+		Date theCurrentDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+		theTraining.setDate(theCurrentDate);
+
+		Session currentSession = entityManager.unwrap(Session.class);
+
+		String theQueryString = "select id from training WHERE DATE(date) = CURDATE() AND uebung = "
+				+ training.getUebung();
+		Query theQuery = currentSession.createNativeQuery(theQueryString);
+
+		List<Integer> theResult = theQuery.getResultList();
+
+		if (!theResult.isEmpty()) {
+			int newId = (int) theResult.get(0);
+			String theNewQueryString = "UPDATE training SET uebung = " + theTraining.getUebung() + ", gewicht = "
+					+ theTraining.getGewicht() + ",  wiederholungen = '" + theTraining.getWiederholungen()
+					+ "' WHERE id = " + newId;
+
+			Query theNewQuery = currentSession.createNativeQuery(theNewQueryString, Training.class);
+			theNewQuery.executeUpdate();
+
+		} else {
+			currentSession.save(theTraining);
+		}
+
+		return training;
+
+	}
+
+	@Override
+	public void deleteTraining(String uebungsName) {
+
+		int uebungsNummer = uebungenService.getUebungsNummer(uebungsName);
+
+		if (uebungsNummer > 0) {
+			String theNewQueryString = "DELETE from training WHERE DATE(date) = CURDATE() AND uebung = "
+					+ uebungsNummer;
+			Session currentSession = entityManager.unwrap(Session.class);
+			Query theNewQuery = currentSession.createNativeQuery(theNewQueryString, Training.class);
+			theNewQuery.executeUpdate();
+
+		}
+
+	}
+
+	@Override
+	public List<Training> getAllTrainingsByUebung(String uebungsName) {
+
+		int uebungsNummer = uebungenService.getUebungsNummer(uebungsName);
+
+		Session currentSession = entityManager.unwrap(Session.class);
+
+		String theQueryString = "select * from training where uebung=" + uebungsNummer + " order by date";
+
+		Query theQuery = currentSession.createNativeQuery(theQueryString, Training.class);
+
+		List<Training> trainings = theQuery.getResultList();
+
+		if (trainings.isEmpty()) {
+			return null;
+		}
+		return trainings;
+
+	}
+
+
+
+
+
+}

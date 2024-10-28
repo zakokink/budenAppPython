@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c16c402-1d83-41fc-bed9-b4a1cc3f1eba" name="Changes" comment="erster Commit" />
+    <list default="true" id="2c16c402-1d83-41fc-bed9-b4a1cc3f1eba" name="Changes" comment="test">
+      <change afterPath="$PROJECT_DIR$/budenApp/Notizen.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budenApp/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budenApp/myBudenApp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/myBudenApp/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budenApp/myBudenApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/myBudenApp/models.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +26,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "zakokink"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/zakokink/budenAppPython",
+    "accountId": "51a28f5e-e46b-4f2f-a310-0acea2e26c3f"
+  }
+}]]></component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 4
 }]]></component>
@@ -59,7 +77,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730106472620</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="test">
+      <option name="closed" value="true" />
+      <created>1730106562453</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1730106562453</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -75,7 +101,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="erster Commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="erster Commit" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
