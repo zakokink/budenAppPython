@@ -1,6 +1,7 @@
 from django.shortcuts import render,HttpResponse
 from .models import Training, Uebungen, User
 from django.db.models import Max
+from django.core import serializers
 
 from .repository import getLatestTrainingForUebungAndUser, getLatestGewichtForUebungAndUser
 
@@ -50,6 +51,14 @@ def alleTrainings(request):
     print(result2)
 
     return render(request, "alleTrainings.html", {"trainings": trainingWithMaxForUebung})
+
+def alleTrainingsJson(request):
+    result = Training.objects.all()
+    data = serializers.serialize('json', result)
+    print(data)
+
+    return HttpResponse(data)
+
 
 
 
