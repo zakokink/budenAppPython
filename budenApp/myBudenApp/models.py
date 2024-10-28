@@ -1,5 +1,4 @@
 from datetime import datetime
-
 from django.db import models
 
 class User(models.Model):
@@ -19,8 +18,8 @@ class Training(models.Model):
     uebung = models.ForeignKey(Uebungen, on_delete=models.PROTECT)
     gewicht = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     wiederholungen = models.CharField(max_length=200)
-    comment = models.CharField(max_length=200, null=True, blank=True)
+    comment = models.CharField(max_length=200, default='')
 
     def __str__(self):
-        return str(self.date)  + ' ' + self.user.name + ' ' + str(self.uebung)
+        return str(self.date)  + ' ' + self.user.name + ' ' + str(self.uebung) + ' ' + str(self.gewicht) + ' ' + str(self.wiederholungen) + ' ' + str(self.comment)
 

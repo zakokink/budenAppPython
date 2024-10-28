@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c16c402-1d83-41fc-bed9-b4a1cc3f1eba" name="Changes" comment="Modelle implementiert">
-      <change afterPath="$PROJECT_DIR$/budenApp/myBudenApp/templates/alleTrainings.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/budenApp/myBudenApp/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/budenApp/myBudenApp/templates/home.html" afterDir="false" />
+    <list default="true" id="2c16c402-1d83-41fc-bed9-b4a1cc3f1eba" name="Changes" comment="Template implementieren">
+      <change afterPath="$PROJECT_DIR$/budenApp/myBudenApp/repository.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budenApp/Notizen.txt" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/Notizen.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budenApp/myBudenApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/myBudenApp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budenApp/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budenApp/myBudenApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/myBudenApp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budenApp/myBudenApp/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/myBudenApp/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/budenApp/myBudenApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/myBudenApp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +94,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730108977985</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Template implementieren">
+      <option name="closed" value="true" />
+      <created>1730116154178</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1730116154178</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -113,7 +120,8 @@
     <MESSAGE value="erster Commit" />
     <MESSAGE value="test" />
     <MESSAGE value="Modelle implementiert" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modelle implementiert" />
+    <MESSAGE value="Template implementieren" />
+    <option name="LAST_COMMIT_MESSAGE" value="Template implementieren" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
