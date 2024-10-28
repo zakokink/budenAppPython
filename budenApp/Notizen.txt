@@ -3,7 +3,6 @@
 theQueryString = "select * from training where date in (select max(date) from training where uebung=" + uebungsnummer + " having uebung=" + uebungsnummer + ")";
 
 
-
 @Repository
 public class TrainingDaoImpl implements TrainingDao {
 
