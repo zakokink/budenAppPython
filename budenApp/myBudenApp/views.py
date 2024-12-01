@@ -1,68 +1,56 @@
+from django.db.models.expressions import result
 from django.shortcuts import render,HttpResponse
+from rest_framework.response import Response
+
 from .models import Training, Uebungen, User
 from django.db.models import Max
 from django.core import serializers
-
-from .repository import getLatestTrainingForUebungAndUser, getLatestGewichtForUebungAndUser
-
+from rest_framework import generics
+from .repository import getLatestTrainingForUebungAndUser, getLatestGewichtForUebungAndUser, getUebungen
+from .serializers import UebungenSerializer, TrainingsSerializer
+from rest_framework.views import APIView
 
 def home(request):
     return render(request, "home.html")
 
-def alleTrainings(request):
-    uebid = Uebungen.objects.get(uebung='Beinpresse')
-    userid = User.objects.get(name='Salomon')
+class UebungenListCreate(generics.ListCreateAPIView):
+    queryset = Uebungen.objects.all()
+    serializer_class = UebungenSerializer
 
-    #print(userid)
-    #print(uebid.id)
-    #trainings = Training.objects.filter(uebung = uebid.id, user = 1, ).order_by('-date')[0]
-    #trainingsArray = []
-    #trainingsArray.append(trainings)
+class UebungenListUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Uebungen.objects.all()
+    serializer_class = UebungenSerializer
+    lookup_field = "pk"
 
-    #trainings2 = Training.objects.aggregate(Max('gewicht'))
-    maxDate = Training.objects.filter(uebung = uebid.id, user = userid).aggregate(Max('date'))['date__max']
-    trainingWithMaxForUebung = Training.objects.filter(date = str(maxDate), uebung = uebid.id, user = userid)
+class LatestTrainingFuerUebungAndUser(generics.ListAPIView):
+    def get(self, request, *args, **kwargs):
+        userId = kwargs.get('userId')
+        uebungId = kwargs.get('uebungId')
 
-    #print(str(maxDate))
+        queryset = getLatestTrainingForUebungAndUser(userId, uebungId)
+        if(queryset == None):
+            print("Keine Daten gefunden")
+            return Response(data={"letztesTrainingFuerUebung": None})
 
+        serializer_class = TrainingsSerializer(queryset, many=True)
+        return Response(data={"letztesTrainingFuerUebung": serializer_class.data})
 
-    #print('trainingWithMaxForUebung date: ')
-    #print(trainingWithMaxForUebung)
+class LatestGewichtForUebungAndUser(generics.ListAPIView):
+    def get(self, request, *args, **kwargs):
+        userId = kwargs.get('userId')
+        uebungId = kwargs.get('uebungId')
 
+        queryset = getLatestGewichtForUebungAndUser(userId, uebungId)
+        if(queryset == None):
+            print("Keine Daten gefunden")
+            return Response(data={"letztesGewichtFuerUebung": None})
+        return Response(data={"letztesGewichtFuerUebung": queryset})
 
-    #trainings1 = Training.objects.filter(uebung=uebid.id).order_by('-date')[0]
-    #print(trainings1.gewicht)
-
-    #trainings = Training.objects.raw("select * from myBudenApp_training")
-
-    #query = 'select * from myBudenApp_training where user.user=Salomon'
-
-    #query = "select * from myBudenApp_training where date in (select max(date) from myBudenApp_training where uebung=2 having uebung=2)"
-
-    #trainings = Training.objects.raw(query)
-
-    #trainings = Training.objects.all()
-
-    result1 = getLatestTrainingForUebungAndUser(userid,uebid)
-    if(len(result1) > 0):
-        print(result1[0])
-
-    result2 = getLatestGewichtForUebungAndUser(userid,uebid)
-    print(result2)
-
-    return render(request, "alleTrainings.html", {"trainings": trainingWithMaxForUebung})
-
-def alleTrainingsJson(request):
-    result = Training.objects.all()
-    data = serializers.serialize('json', result)
-    print(data)
-
-    return HttpResponse(data)
-
-
-
-
-
-
+class Uebungen(APIView):
+    def get(self, request):
+        result = getUebungen()
+        print(len(result))
+        serializer_class = UebungenSerializer(result, many=True)
+        return Response(data = {"my_return_data": serializer_class.data})
 
 

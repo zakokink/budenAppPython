@@ -6,7 +6,6 @@ class User(models.Model):
     def __str__(self):
         return self.name
 
-
 class Uebungen(models.Model):
     uebung = models.CharField(max_length=100)
     def __str__(self):

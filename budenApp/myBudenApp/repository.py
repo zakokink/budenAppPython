@@ -26,3 +26,7 @@ def getLatestGewichtForUebungAndUser(userId, uebungId):
     trainingWithMaxForUebung = Training.objects.filter(date = str(maxDate), uebung = uebungId, user = userId)
 
     return trainingWithMaxForUebung[0].gewicht
+
+def getUebungen():
+    uebungen = Uebungen.objects.all()
+    return uebungen
