@@ -12,19 +12,30 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ["id", "name"]
 
 class TrainingsSerializer(serializers.ModelSerializer):
-    user = serializers.SerializerMethodField()
-    uebung = serializers.SerializerMethodField()
-
-    #user = serializers.StringRelatedField(many=False)
-    #uebung = serializers.StringRelatedField(many=False)
+    user = serializers.SerializerMethodField(read_only=False)
+    uebung = serializers.SerializerMethodField(read_only=False)
 
     def get_user(self, training):
-        return UserSerializer(training.user, many=False).data
+        return UserSerializer(training.user, many=False, read_only=False).data
 
     def get_uebung(self, training):
-        return UebungenSerializer(training.uebung, many=False).data
+        return UebungenSerializer(training.uebung, many=False, read_only=False).data
 
     class Meta:
         model = Training
         fields = ["id", "date", "user", "uebung", "gewicht", "wiederholungen", "comment"]
 
+
+class TrainingsCreateSerializer(serializers.ModelSerializer):
+    user = serializers.SerializerMethodField(read_only=False)
+    uebung = serializers.SerializerMethodField(read_only=False)
+
+    def get_user(self, training):
+        return UserSerializer(training.user, many=False, read_only=False).data
+
+    def get_uebung(self, training):
+        return UebungenSerializer(training.uebung, many=False, read_only=False).data
+
+    class Meta:
+        model = Training
+        fields = ["id", "date", "user", "uebung", "gewicht", "wiederholungen", "comment"]
