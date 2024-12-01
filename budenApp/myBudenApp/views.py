@@ -1,13 +1,15 @@
 from django.db.models.expressions import result
 from django.shortcuts import render,HttpResponse
 from rest_framework.response import Response
+from rest_framework.viewsets import ModelViewSet
 
 from .models import Training, Uebungen, User
 from django.db.models import Max
 from django.core import serializers
 from rest_framework import generics, permissions
 from .repository import getLatestTrainingForUebungAndUser, getLatestGewichtForUebungAndUser, getUebungen
-from .serializers import UebungenSerializer, TrainingsSerializer, UserSerializer
+from .serializers import UebungenSerializer, TrainingsSerializer, UserSerializer, UsersCreateSerializer, \
+    TrainingsCreateSerializer
 from rest_framework.views import APIView
 
 def home(request):
@@ -16,6 +18,11 @@ def home(request):
 class UserListCreate(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+class UserRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    lookup_field = "pk"
 
 class UebungenListCreate(generics.ListCreateAPIView):
     queryset = Uebungen.objects.all()
@@ -52,14 +59,13 @@ class LatestGewichtForUebungAndUser(generics.ListAPIView):
 
         return Response(data={"status": 200, "data": queryset})
 
-class Uebungen(APIView):
-    def get(self, request):
-        result = getUebungen()
-        print(len(result))
-        serializer_class = UebungenSerializer(result, many=True)
-        return Response(data = {"status": 200, "data": serializer_class.data})
 
-
+#class Uebungen(APIView):
+#    def get(self, request):
+#        result = getUebungen()
+#        print(len(result))
+#        serializer_class = UebungenSerializer(result, many=True)
+#        return Response(data = {"status": 200, "data": serializer_class.data})
 
 class TrainingsFuerUserList(generics.ListAPIView):
     def get(self, request, *args, **kwargs):
@@ -70,11 +76,16 @@ class TrainingsFuerUserList(generics.ListAPIView):
 
 
 
-class TrainingsFuerUserCreateList(generics.CreateAPIView):
-    permission_classes = [permissions.AllowAny, ]
+#class TrainingsFuerUserCreateList(generics.CreateAPIView):
+#    permission_classes = [permissions.AllowAny, ]
+#    queryset = Training.objects.all()
+#    serializer_class = TrainingsSerializer
+
+#class UserViewset(ModelViewSet):
+#    queryset = User.objects.all()
+#    serializer_class = UsersCreateSerializer
+
+class TrainingViewset(ModelViewSet):
+    lookup_field = "pk"
     queryset = Training.objects.all()
-    serializer_class = TrainingsSerializer
-
-
-
-
+    serializer_class = TrainingsCreateSerializer
