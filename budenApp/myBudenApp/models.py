@@ -1,7 +1,5 @@
 from datetime import datetime
 from django.db import models
-from pkg_resources import require
-
 
 class User(models.Model):
     name = models.CharField(max_length=100)
