@@ -18,6 +18,8 @@ urlpatterns = [
 
     path('trainingsFuerUser/<int:userId>', views.TrainingsFuerUserList.as_view(),
          name="training-user-view"),
+    path('trainingsEinheitDesHeutigenDatumsFuerUser/<int:userId>', views.TrainingsFuerUserFuerHeutigenTagList.as_view(), name="training-view-user-now"),
+
     #path('trainingsFuerUserCreate', views.TrainingsFuerUserCreateList.as_view(),        name="training-user-view-create"),
 
     path('trainingViewset', views.TrainingViewset.as_view({"get": "list", "post": "create"})),

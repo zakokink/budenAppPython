@@ -1,3 +1,6 @@
+from datetime import datetime
+from turtledemo.clock import datum
+
 from django.db.models.expressions import result
 from django.shortcuts import render,HttpResponse
 from rest_framework.response import Response
@@ -73,6 +76,14 @@ class TrainingsFuerUserList(generics.ListAPIView):
         queryset = Training.objects.filter(user__id = userId).order_by('-date')
         serializer_class = TrainingsSerializer(queryset, many=True)
         return Response(data={"status": 200, "data": serializer_class.data})
+
+class TrainingsFuerUserFuerHeutigenTagList(generics.ListAPIView):
+    def get(self, request, *args, **kwargs):
+        userId = kwargs.get('userId')
+        queryset = Training.objects.filter(user__id = userId) .filter(date = datetime.now()).order_by('id')
+        serializer_class = TrainingsSerializer(queryset, many=True)
+        return Response(data={"status": 200, "data": serializer_class.data})
+
 
 
 
