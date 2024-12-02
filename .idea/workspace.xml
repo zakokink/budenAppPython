@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c16c402-1d83-41fc-bed9-b4a1cc3f1eba" name="Changes" comment="Models Refactoring">
+    <list default="true" id="2c16c402-1d83-41fc-bed9-b4a1cc3f1eba" name="Changes" comment="trainingsEinheitDesHeutigenDatumsFuerUser hinzugefuegt">
       <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budenApp/myBudenApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/myBudenApp/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,7 +155,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733135530240</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Models Refactoring">
+      <option name="closed" value="true" />
+      <created>1733135839329</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1733135839329</updated>
+    </task>
+    <task id="LOCAL-00013" summary="trainingsEinheitDesHeutigenDatumsFuerUser hinzugefuegt">
+      <option name="closed" value="true" />
+      <created>1733137070344</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1733137070344</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -179,7 +194,8 @@
     <MESSAGE value="Views" />
     <MESSAGE value="Views funktionieren" />
     <MESSAGE value="Models Refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Models Refactoring" />
+    <MESSAGE value="trainingsEinheitDesHeutigenDatumsFuerUser hinzugefuegt" />
+    <option name="LAST_COMMIT_MESSAGE" value="trainingsEinheitDesHeutigenDatumsFuerUser hinzugefuegt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
