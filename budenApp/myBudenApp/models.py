@@ -10,6 +10,10 @@ class User(models.Model):
 
 class Uebungen(models.Model):
     uebung = models.CharField(max_length=100)
+    comment = models.CharField(max_length=200, default='', blank=True)
+    minWiederholungen = models.IntegerField(null=True, blank=True)
+    maxWiederholungen = models.IntegerField(null=True, blank=True)
+
     def __str__(self):
         return self.uebung
 

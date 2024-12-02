@@ -4,7 +4,7 @@ from .models import Training, User, Uebungen
 class UebungenSerializer(serializers.ModelSerializer):
     class Meta:
         model = Uebungen
-        fields = ["id", "uebung"]
+        fields = "__all__"
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
