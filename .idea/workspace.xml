@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c16c402-1d83-41fc-bed9-b4a1cc3f1eba" name="Changes" comment="Views funktionieren">
+    <list default="true" id="2c16c402-1d83-41fc-bed9-b4a1cc3f1eba" name="Changes" comment="Models Refactoring">
       <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budenApp/budenApp/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/budenApp/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/budenApp/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budenApp/myBudenApp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/myBudenApp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budenApp/myBudenApp/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/myBudenApp/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budenApp/myBudenApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/myBudenApp/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733060474576</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Models Refactoring">
+      <option name="closed" value="true" />
+      <created>1733128583048</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1733128583048</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -163,7 +173,8 @@
     <MESSAGE value="Repository implementieren" />
     <MESSAGE value="Views" />
     <MESSAGE value="Views funktionieren" />
-    <option name="LAST_COMMIT_MESSAGE" value="Views funktionieren" />
+    <MESSAGE value="Models Refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Models Refactoring" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

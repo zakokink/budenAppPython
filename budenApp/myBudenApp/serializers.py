@@ -10,7 +10,6 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = "__all__"
-        #fields = ["id", "name"]
 
 class TrainingsSerializer(serializers.ModelSerializer):
     user = serializers.SerializerMethodField(read_only=False)
@@ -24,7 +23,8 @@ class TrainingsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Training
-        fields = ["id", "date", "user", "uebung", "gewicht", "wiederholungen", "comment"]
+        #fields = ["id", "date", "user", "uebung", "gewicht", "wiederholungen", "comment"]
+        fields = "__all__"
 
 
 class TrainingsCreateSerializer(serializers.ModelSerializer):
