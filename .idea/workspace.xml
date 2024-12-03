@@ -212,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733228061825</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="neuen endpoint">
+      <option name="closed" value="true" />
+      <created>1733231043855</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1733231043855</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
