@@ -6,6 +6,12 @@ class User(models.Model):
     def __str__(self):
         return self.name
 
+class AktuelleLeistung(models.Model):
+    gewicht = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+    wiederholungen = models.CharField(max_length=200)
+    def __str__(self):
+        return str(self.gewicht)  + ' '  + str(self.wiederholungen)
+
 class Uebungen(models.Model):
     uebung = models.CharField(max_length=100)
     comment = models.CharField(max_length=200, default='', blank=True)

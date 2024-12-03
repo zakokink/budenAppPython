@@ -15,6 +15,8 @@ urlpatterns = [
     # Trainings
     path('letztesTraining/<int:userId>/<int:uebungId>', views.LatestTrainingFuerUebungAndUser.as_view(), name="latest-training-view-create"),
     path('letztesGewicht/<int:userId>/<int:uebungId>', views.LatestGewichtForUebungAndUser.as_view(), name="latest-gewicht-view-create"),
+    path('latestGewichtWiederholungen/<int:userId>/<int:uebungId>', views.LatestGewichtAndWiederholungenForUebungAndUser.as_view(),
+         name="latest-gewicht-view-create"),
 
     path('trainingsFuerUser/<int:userId>', views.TrainingsFuerUserList.as_view(),
          name="training-user-view"),

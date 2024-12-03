@@ -10,9 +10,10 @@ from .models import Training, Uebungen, User
 from django.db.models import Max
 from django.core import serializers
 from rest_framework import generics, permissions
-from .repository import getLatestTrainingForUebungAndUser, getLatestGewichtForUebungAndUser, getUebungen
+from .repository import getLatestTrainingForUebungAndUser, getLatestGewichtForUebungAndUser, getUebungen, \
+    getLatestGewichtAndWiederholungenForUebungAndUser
 from .serializers import UebungenSerializer, TrainingsSerializer, UserSerializer, UsersCreateSerializer, \
-    TrainingsCreateSerializer
+    TrainingsCreateSerializer, AktuelleLeistungSerializer
 from rest_framework.views import APIView
 
 def home(request):
@@ -61,6 +62,22 @@ class LatestGewichtForUebungAndUser(generics.ListAPIView):
             return Response(data={"status": 404, "data": None})
 
         return Response(data={"status": 200, "data": queryset})
+
+
+class LatestGewichtAndWiederholungenForUebungAndUser(generics.ListAPIView):
+    def get(self, request, *args, **kwargs):
+        userId = kwargs.get('userId')
+        uebungId = kwargs.get('uebungId')
+
+        queryset = getLatestGewichtAndWiederholungenForUebungAndUser(userId, uebungId)
+
+        if(queryset == None):
+            print("Keine Daten gefunden")
+            return Response(data={"status": 404, "data": None})
+
+        serializer_class = AktuelleLeistungSerializer(queryset, many=False)
+        return Response(data={"status": 200, "data": serializer_class.data})
+
 
 
 #class Uebungen(APIView):

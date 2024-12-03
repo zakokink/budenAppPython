@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import Training, User, Uebungen
+from .models import Training, User, Uebungen, AktuelleLeistung
+
 
 class UebungenSerializer(serializers.ModelSerializer):
     class Meta:
@@ -32,6 +33,11 @@ class TrainingsCreateSerializer(serializers.ModelSerializer):
         model = Training
         fields = "__all__"
 
+
+class AktuelleLeistungSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AktuelleLeistung
+        fields = "__all__"
 
 class UsersCreateSerializer(serializers.ModelSerializer):
     class Meta:
