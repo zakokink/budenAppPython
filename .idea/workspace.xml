@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c16c402-1d83-41fc-bed9-b4a1cc3f1eba" name="Changes" comment="neuen endpoint">
+    <list default="true" id="2c16c402-1d83-41fc-bed9-b4a1cc3f1eba" name="Changes" comment="db update">
       <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budenApp/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733231043855</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="db update">
+      <option name="closed" value="true" />
+      <created>1733232551695</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1733232551695</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -246,7 +253,8 @@
     <MESSAGE value="trainingsEinheitDesHeutigenDatumsFuerUser hinzugefuegt" />
     <MESSAGE value="daten" />
     <MESSAGE value="neuen endpoint" />
-    <option name="LAST_COMMIT_MESSAGE" value="neuen endpoint" />
+    <MESSAGE value="db update" />
+    <option name="LAST_COMMIT_MESSAGE" value="db update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
