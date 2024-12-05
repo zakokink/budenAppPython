@@ -5,10 +5,11 @@ from .views import  LatestTrainingFuerUebungAndUser, LatestGewichtForUebungAndUs
 urlpatterns = [
     path('', views.home, name='home'),
 
+    # Uebungen
     path('uebungen', views.UebungenListCreate.as_view(), name="uebungen-view-create"),
     path('uebungen/<int:pk>', views.UebungenListUpdateDestroy.as_view(), name="uebungen-update"),
-    #path('uebung', Uebungen.as_view()),
 
+    # Users
     path('user', views.UserListCreate.as_view() , name="user-view-create"),
     path('user/<int:pk>', views.UserRetrieveUpdateDestroy.as_view(), name="user-update-destroy"),
 
