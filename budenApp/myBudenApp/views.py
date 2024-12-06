@@ -1,19 +1,11 @@
 from datetime import datetime
-from turtledemo.clock import datum
-
-from django.db.models.expressions import result
 from django.shortcuts import render,HttpResponse
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
-
 from .models import Training, Uebungen, User
-from django.db.models import Max
-from django.core import serializers
 from rest_framework import generics, permissions
-from .repository import getLatestTrainingForUebungAndUser, getLatestGewichtForUebungAndUser, getUebungen, \
-    getLatestGewichtAndWiederholungenForUebungAndUser
-from .serializers import UebungenSerializer, TrainingsSerializer, UserSerializer, UsersCreateSerializer, \
-    TrainingsCreateSerializer, AktuelleLeistungSerializer
+from .repository import getLatestTrainingForUebungAndUser, getLatestGewichtForUebungAndUser, getUebungen, getLatestGewichtAndWiederholungenForUebungAndUser
+from .serializers import UebungenSerializer, TrainingsSerializer, UserSerializer, UsersCreateSerializer, TrainingsCreateSerializer, AktuelleLeistungSerializer
 from rest_framework.views import APIView
 
 def home(request):

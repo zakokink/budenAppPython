@@ -7,8 +7,8 @@
     <list default="true" id="2c16c402-1d83-41fc-bed9-b4a1cc3f1eba" name="Changes" comment="db update">
       <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/budenApp/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/budenApp/myBudenApp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/myBudenApp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/budenApp/myBudenApp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/budenApp/myBudenApp/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +245,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733234330077</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="db update">
+      <option name="closed" value="true" />
+      <created>1733409462728</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1733409462728</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
