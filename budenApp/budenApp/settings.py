@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-8u9-4f=)123iaayy-2tr&q_pd-ij3=v*)_x9n@#130%t+2hu0w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+
+ALLOWED_HOSTS = ['80.108.240.70','127.0.0.1', '192.168.0.115']
+
 
 
 # Application definition
@@ -56,8 +58,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'budenApp.urls'
-CORS_ALLOW_ALL_ORIGINS = True
-
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ORIGIN_WHITELIST =('http://80.108.240.70:4245', 'http://192.168.0.115:4245')
 
 TEMPLATES = [
     {
@@ -128,4 +130,4 @@ STATIC_URL = 'static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField' 
